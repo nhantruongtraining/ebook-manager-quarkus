@@ -10,8 +10,8 @@ public class Language {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length = 50)
-    private String name;
+    @Column(length = 60)
+    private String value;
 
     @Column(length = 5) // for example en-GB, de-CH
     private String code;

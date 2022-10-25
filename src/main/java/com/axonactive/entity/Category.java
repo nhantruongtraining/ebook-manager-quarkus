@@ -10,7 +10,7 @@ public class Category {
     private Integer id;
 
     @Column(length = 50)
-    private String name;
+    private String value;
 
     @Column(length = 50)
     private String topic;

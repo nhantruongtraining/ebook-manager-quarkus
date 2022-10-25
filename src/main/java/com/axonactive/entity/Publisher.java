@@ -9,8 +9,8 @@ public class Publisher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, length = 120)
-    private String name;
+    @Column(nullable = false, length = 60)
+    private String value;
 
     @Column
     private String location;

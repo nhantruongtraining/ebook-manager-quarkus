@@ -3,6 +3,7 @@ package com.axonactive.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity(name = "Ebook")
 @Table(name = "ebook")
@@ -18,6 +19,18 @@ public class Ebook {
     @Column(length = 254)
     private String description;
 
-    @Column(length = 4)
+    @Column(name = "published_year", length = 4)
     private Integer publishedYear;
+
+    @Column(name = "creation_date")
+    private LocalDate creationDate;
+
+    @Column
+    private Boolean favorite;
+
+    @Enumerated(EnumType.STRING)
+    private EbookStatus status;
+
+
+
 }

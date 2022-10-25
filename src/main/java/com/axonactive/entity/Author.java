@@ -19,6 +19,6 @@ public class Author {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private AuthorStatus status;
 }
