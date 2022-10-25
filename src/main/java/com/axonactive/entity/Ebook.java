@@ -9,10 +9,14 @@ import java.util.List;
 @Entity(name = "Ebook")
 @Table(name = "ebook")
 public class Ebook {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private String id;
+    private String uuid;
 
     @Column(nullable = false, length = 200)
     private String title;
