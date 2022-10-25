@@ -13,14 +13,10 @@ public class Contributor {
     private ContributorType type;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ebook_id")
+    @JoinColumn(name = "ebook_id", insertable = false, updatable = false)
     private Ebook ebook;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id")
     private Author author;
-
-    @ManyToOne
-    @JoinColumn(name = "ebook_id", insertable = false, updatable = false)
-    private Ebook book;
 }

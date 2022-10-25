@@ -44,7 +44,7 @@ public class Ebook {
     @JoinColumn(name = "language_id")
     private Language language;
 
-    @OneToMany(mappedBy = "book")
+    @OneToMany(mappedBy = "ebook")
     private List<Contributor> contributors;
 
 }
