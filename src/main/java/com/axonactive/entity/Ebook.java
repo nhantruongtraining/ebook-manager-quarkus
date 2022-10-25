@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity(name = "Ebook")
 @Table(name = "ebook")
@@ -25,11 +26,11 @@ public class Ebook {
     @Column(name = "creation_date")
     private LocalDate creationDate;
 
-    @Column
-    private Boolean favorite;
-
-    @Enumerated(EnumType.STRING)
-    private EbookStatus status;
+//    @Column
+//    private Boolean favorite;
+//
+//    @Enumerated(EnumType.STRING)
+//    private EbookStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
@@ -42,5 +43,8 @@ public class Ebook {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "language_id")
     private Language language;
+
+    @OneToMany(mappedBy = "book")
+    private List<Contributor> contributors;
 
 }
