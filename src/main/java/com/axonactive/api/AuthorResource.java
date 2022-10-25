@@ -20,17 +20,22 @@ import java.util.List;
 public class AuthorResource {
 
     @Inject
-    EntityManager em;
+    private EntityManager em;
+
+
 
     @GET
     public List<Author> getAllAuthors() {
         CriteriaBuilder builder = em.getCriteriaBuilder();
-
         CriteriaQuery<Author> criteriaQuery = builder.createQuery(Author.class);
         Root<Author> root = criteriaQuery.from(Author.class);
         criteriaQuery.select(root);
         criteriaQuery.orderBy(builder.asc(root.get("id")));
 
         return em.createQuery(criteriaQuery).getResultList();
+    }
+
+    public Author getAuthorById(Integer id) {
+        return null;
     }
 }
