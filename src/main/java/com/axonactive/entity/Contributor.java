@@ -11,4 +11,12 @@ public class Contributor {
 
     @Enumerated(EnumType.STRING)
     private ContributorType type;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ebook_id")
+    private Ebook ebook;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id")
+    private Author author;
 }
