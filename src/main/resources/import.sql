@@ -46,19 +46,19 @@ insert into ebook (description, published_year, title, category_id, language_id,
 
 -- Author
 insert into author(date_of_birth, first_name, last_name, status)
-values ('1870-06-09', 'Charles', 'Dickens', 0);
+values ('1870-06-09', 'Charles', 'Dickens', 'INACTIVE');
 insert into author(date_of_birth, first_name, last_name, status)
-values ('1952-10-18', 'Ninh', 'Bao', 1);
+values ('1952-10-18', 'Ninh', 'Bao', 'ACTIVE');
 insert into author(date_of_birth, first_name, last_name, status)
-values ('1956-03-09', 'Huy Thiep', 'Nguyen', 0);
+values ('1956-03-09', 'Huy Thiep', 'Nguyen', 'INACTIVE');
 insert into author(date_of_birth, first_name, last_name, status)
-values ('1933-10-24', 'Junichi', 'Watanabe', 0);
+values ('1933-10-24', 'Junichi', 'Watanabe', 'INACTIVE');
 insert into author(date_of_birth, first_name, last_name, status)
-values ('1930-07-30', 'Xuan Hao', 'Cao', 0);
+values ('1930-07-30', 'Xuan Hao', 'Cao', 'INACTIVE');
 insert into author(date_of_birth, first_name, last_name, status)
-values ('1916-09-13', 'Roald', 'Dahl', 0);
+values ('1916-09-13', 'Roald', 'Dahl', 'INACTIVE');
 insert into author(date_of_birth, first_name, last_name, status)
-values ('1924-10-09', 'Donald', 'Chaffin', 0);
+values ('1924-10-09', 'Donald', 'Chaffin', 'INACTIVE');
 
 
 -- Contributor
