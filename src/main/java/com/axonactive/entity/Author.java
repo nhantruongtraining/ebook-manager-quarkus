@@ -62,14 +62,4 @@ public class Author {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "Author{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", status=" + status +
-                '}';
-    }
 }

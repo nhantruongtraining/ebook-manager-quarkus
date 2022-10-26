@@ -2,18 +2,18 @@ package com.axonactive.dao;
 
 import com.axonactive.entity.Author;
 
-import javax.inject.Inject;
+import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
+import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.Optional;
 
-public class AuthorDao implements Dao<Author>{
-
-    @Inject
+@ApplicationScoped
+public class AuthorDao implements Dao<Author> {
+    @PersistenceContext
     private EntityManager entityManager;
 
     @Override
@@ -33,16 +33,15 @@ public class AuthorDao implements Dao<Author>{
 
     @Override
     public void save(Author author) {
-
+        entityManager.persist(author);
     }
 
     @Override
     public void update(Author author, String[] params) {
-
     }
 
     @Override
     public void delete(Author author) {
-
+        entityManager.remove(author);
     }
 }

@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Path("authors")
-//@Produces(MediaType.APPLICATION_JSON)
-//@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class AuthorResource {
 
     private AuthorDaoImpl authorDao;
