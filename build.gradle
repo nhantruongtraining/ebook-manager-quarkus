@@ -9,6 +9,7 @@ repositories {
 }
 
 dependencies {
+//    implementation 'io.quarkus:quarkus-container-image-docker'
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation("io.quarkus:quarkus-hibernate-orm") // Hibernate ORM specific dependencies
     implementation("io.quarkus:quarkus-jdbc-postgresql") // JDBC driver dependencies
