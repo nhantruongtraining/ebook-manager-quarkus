@@ -1,16 +1,18 @@
-package com.axonactive.impl;
+package com.axonactive.service;
 
-import com.axonactive.dao.AuthorDao;
+import com.axonactive.dao.AuthorDaoImpl;
 import com.axonactive.entity.Author;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
 
-public class AuthorDaoImpl {
-
-
-
-    private AuthorDao authorDao;
+@ApplicationScoped
+public class AuthorService {
+    @Inject
+    AuthorDaoImpl authorDao;
+//    @Inject
 //    private Dao<Author> authorDao;
 
     public Optional<Author> getById(Integer id) {

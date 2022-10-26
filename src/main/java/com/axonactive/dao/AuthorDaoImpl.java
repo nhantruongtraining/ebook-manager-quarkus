@@ -3,8 +3,8 @@ package com.axonactive.dao;
 import com.axonactive.entity.Author;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -12,8 +12,9 @@ import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
-public class AuthorDao implements Dao<Author> {
-    @PersistenceContext
+public class AuthorDaoImpl implements Dao<Author> {
+
+    @Inject
     private EntityManager entityManager;
 
     @Override

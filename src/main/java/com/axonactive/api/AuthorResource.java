@@ -1,22 +1,27 @@
 package com.axonactive.api;
 
 import com.axonactive.entity.Author;
-import com.axonactive.impl.AuthorDaoImpl;
+import com.axonactive.service.AuthorService;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.inject.Inject;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.Optional;
 
-@Path("authors")
+@Path("/api/authors")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class AuthorResource {
 
-    private AuthorDaoImpl authorDao;
+
+    private AuthorService authorDao;
+
+    @Inject
+    AuthorResource(AuthorService authorDao) {
+        this.authorDao = authorDao;
+    }
+
 
     @GET
     public List<Author> getAll() {
@@ -25,7 +30,7 @@ public class AuthorResource {
 
     @GET
     @Path("/{id}")
-    public Optional<Author> getById(Integer id) {
+    public Optional<Author> getById(@PathParam("id") Integer id) {
         return authorDao.getById(id);
     }
 }
