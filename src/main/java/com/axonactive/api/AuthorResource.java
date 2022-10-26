@@ -1,41 +1,31 @@
 package com.axonactive.api;
 
 import com.axonactive.entity.Author;
+import com.axonactive.impl.AuthorDaoImpl;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+import java.util.Optional;
 
 @Path("authors")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
+//@Produces(MediaType.APPLICATION_JSON)
+//@Consumes(MediaType.APPLICATION_JSON)
 public class AuthorResource {
 
-    @Inject
-    private EntityManager em;
-
-
+    private AuthorDaoImpl authorDao;
 
     @GET
-    public List<Author> getAllAuthors() {
-        CriteriaBuilder builder = em.getCriteriaBuilder();
-        CriteriaQuery<Author> criteriaQuery = builder.createQuery(Author.class);
-        Root<Author> root = criteriaQuery.from(Author.class);
-        criteriaQuery.select(root);
-        criteriaQuery.orderBy(builder.asc(root.get("id")));
-
-        return em.createQuery(criteriaQuery).getResultList();
+    public List<Author> getAll() {
+        return authorDao.getAll();
     }
 
-    public Author getAuthorById(Integer id) {
-        return null;
+    @GET
+    @Path("/{id}")
+    public Optional<Author> getById(Integer id) {
+        return authorDao.getById(id);
     }
 }

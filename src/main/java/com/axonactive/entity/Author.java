@@ -61,4 +61,15 @@ public class Author {
     public void setStatus(AuthorStatus status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", status=" + status +
+                '}';
+    }
 }
