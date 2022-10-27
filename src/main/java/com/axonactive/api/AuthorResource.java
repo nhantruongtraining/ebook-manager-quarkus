@@ -1,5 +1,6 @@
 package com.axonactive.api;
 
+import com.axonactive.dao.AuthorDaoImpl;
 import com.axonactive.entity.Author;
 import com.axonactive.service.AuthorService;
 
@@ -18,10 +19,10 @@ import java.util.Optional;
 public class AuthorResource {
     @Inject
     private EntityManager entityManager;
-    private AuthorService authorDao;
+    private AuthorDaoImpl authorDao;
 
     @Inject
-    AuthorResource(AuthorService authorDao) {
+    AuthorResource(AuthorDaoImpl authorDao) {
         this.authorDao = authorDao;
     }
 
@@ -34,7 +35,7 @@ public class AuthorResource {
     @GET
     @Path("/{id}")
     public Optional<Author> getById(@PathParam("id") Integer id) {
-        return authorDao.getById(id);
+        return authorDao.get(id);
     }
 
     @POST
