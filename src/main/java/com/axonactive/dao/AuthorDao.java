@@ -1,7 +1,6 @@
 package com.axonactive.dao;
 
 import com.axonactive.entity.Author;
-import com.axonactive.entity.AuthorStatus;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -9,12 +8,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
-public class AuthorDaoImpl implements Dao<Author> {
+public class AuthorDao implements Dao<Author> {
 
     @Inject
     private EntityManager entityManager;

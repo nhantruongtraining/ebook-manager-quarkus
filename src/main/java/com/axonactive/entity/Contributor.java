@@ -16,7 +16,7 @@ public class Contributor {
     @JoinColumn(name = "ebook_id", insertable = false, updatable = false)
     private Ebook ebook;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "author_id")
-    private Author author;
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+//    @JoinColumn(name = "author_id")
+//    private Author author;
 }

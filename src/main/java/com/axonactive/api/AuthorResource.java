@@ -1,6 +1,5 @@
 package com.axonactive.api;
 
-import com.axonactive.dao.AuthorDaoImpl;
 import com.axonactive.entity.Author;
 import com.axonactive.service.AuthorService;
 
@@ -19,44 +18,45 @@ import java.util.Optional;
 public class AuthorResource {
     @Inject
     private EntityManager entityManager;
-    private AuthorDaoImpl authorDao;
+    private AuthorService authorService;
 
     @Inject
-    AuthorResource(AuthorDaoImpl authorDao) {
-        this.authorDao = authorDao;
+    AuthorResource(AuthorService authorService) {
+        this.authorService = authorService;
     }
 
 
     @GET
     public List<Author> getAll() {
-        return authorDao.getAll();
+        return authorService.getAll();
     }
 
     @GET
     @Path("/{id}")
     public Optional<Author> getById(@PathParam("id") Integer id) {
-        return authorDao.get(id);
+        return authorService.getById(id);
     }
 
     @POST
     @Transactional
     public Response create(Author author) {
-        authorDao.save(author);
+        authorService.save(author);
         return Response.ok(author).status(201).build();
     }
 
     @PUT
     @Transactional
     public Author update(Author author) {
-        authorDao.update(author);
+        authorService.update(author);
         return author;
     }
 
     @DELETE
+    @Path("/{id}")
     @Transactional
-    public Response delete(Author author) {
-        Author authorToBeDeleted = entityManager.find(Author.class, author.getId());
-        authorDao.delete(authorToBeDeleted);
-        return Response.ok(author).status(204).build();
+    public Response delete(@PathParam ("id") Integer id) {
+        Author authorToBeDeleted = entityManager.find(Author.class, id);
+        authorService.delete(authorToBeDeleted);
+        return Response.ok(authorToBeDeleted).status(204).build();
     }
 }

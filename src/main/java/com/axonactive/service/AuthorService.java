@@ -1,6 +1,6 @@
 package com.axonactive.service;
 
-import com.axonactive.dao.AuthorDaoImpl;
+import com.axonactive.dao.AuthorDao;
 import com.axonactive.entity.Author;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -11,7 +11,7 @@ import java.util.Optional;
 @ApplicationScoped
 public class AuthorService {
     @Inject
-    AuthorDaoImpl authorDao;
+    AuthorDao authorDao;
 //    @Inject
 //    private Dao<Author> authorDao;
 
