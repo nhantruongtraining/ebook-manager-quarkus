@@ -23,12 +23,14 @@ public class AuthorService {
         return authorDao.getAll();
     }
 
-    public void save(Author author) {
+    public Author save(Author author) {
         authorDao.save(author);
+        return author;
     }
 
-    public void update(Author author) {
+    public Author update(Author author) {
         authorDao.update(author);
+        return author;
     }
 
     public void delete(Author author) {
