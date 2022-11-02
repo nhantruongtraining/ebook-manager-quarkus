@@ -19,6 +19,9 @@ public class Author {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
+    @Column
+    private String country;
+
     @Enumerated(EnumType.STRING)
     private AuthorStatus status;
 
@@ -62,4 +65,11 @@ public class Author {
         this.status = status;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
 }
