@@ -24,4 +24,23 @@
             <column name="country" type="varchar"/>
         </addColumn>
     </changeSet>
+
+    <changeSet author="nhantruong" id="loadData-example">
+        <loadData catalogName="pg_catalog"
+                  commentLineStartsWith="//"
+                  encoding="UTF-8"
+                  file="authors.csv"
+                  quotchar="'"
+                  relativeToChangelogFile="true"
+                  schemaName="public"
+                  separator=";"
+                  tableName="author"
+                  usePreparedStatements="true">
+            <column name="first_name" type="varchar"/>
+            <column name="last_name" type="varchar"/>
+            <column name="date_of_birth" type="date"/>
+            <column name="status" type="varchar"/>
+            <column name="country" type="varchar"/>
+        </loadData>
+    </changeSet>
 </databaseChangeLog>
