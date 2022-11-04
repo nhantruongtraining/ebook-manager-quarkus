@@ -1,7 +1,6 @@
 package com.axonactive.api;
 
 import com.axonactive.entity.Author;
-import com.axonactive.entity.AuthorStatus;
 import com.axonactive.service.AuthorService;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -11,7 +10,6 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,11 +17,12 @@ import java.util.Optional;
 @ApplicationScoped
 public class AuthorResource {
     @Inject
-    private EntityManager entityManager;
-    private AuthorService authorService;
+    final EntityManager entityManager;
+    final AuthorService authorService;
 
     @Inject
-    AuthorResource(AuthorService authorService) {
+    AuthorResource(EntityManager entityManager, AuthorService authorService) {
+        this.entityManager = entityManager;
         this.authorService = authorService;
     }
 

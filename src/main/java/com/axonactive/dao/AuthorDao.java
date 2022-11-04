@@ -15,7 +15,11 @@ import java.util.Optional;
 public class AuthorDao implements Dao<Author> {
 
     @Inject
-    private EntityManager entityManager;
+    final EntityManager entityManager;
+
+    public AuthorDao(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     @Override
     public Optional<Author> get(Integer id) {
@@ -42,6 +46,7 @@ public class AuthorDao implements Dao<Author> {
         Author updatedAuthor = entityManager.find(Author.class, author.getId());
         updatedAuthor.setFirstName(author.getFirstName());
         updatedAuthor.setLastName(author.getLastName());
+        updatedAuthor.setCountry(author.getCountry());
         updatedAuthor.setDateOfBirth(author.getDateOfBirth());
         updatedAuthor.setStatus(author.getStatus());
     }
