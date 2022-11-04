@@ -12,8 +12,6 @@ import java.util.Optional;
 public class AuthorService {
     @Inject
     AuthorDao authorDao;
-//    @Inject
-//    private Dao<Author> authorDao;
 
     public Optional<Author> getById(Integer id) {
         return authorDao.get(id);
@@ -23,14 +21,12 @@ public class AuthorService {
         return authorDao.getAll();
     }
 
-    public Author save(Author author) {
+    public void save(Author author) {
         authorDao.save(author);
-        return author;
     }
 
-    public Author update(Author author) {
+    public void update(Author author) {
         authorDao.update(author);
-        return author;
     }
 
     public void delete(Author author) {
